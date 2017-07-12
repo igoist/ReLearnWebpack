@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+  devtool: "cheap-eval-source-map",
+  // devtool: "inline-source-map",
   entry: {
     app: './src/index.js',
     vender: ['lodash']
