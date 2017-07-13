@@ -1,19 +1,30 @@
-import _ from 'lodash';
-import printMe from './print.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-function component() {
-  var element = document.createElement('div');
-  var btn = document.createElement('button');
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-  console.log('index.js');
-
-  return element;
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        Hello World!!!!dasdsd
+      </div>
+    );
+  }
 }
 
-document.body.appendChild(component());
+
+ReactDOM.render(
+	<App />,
+	document.getElementById('root')
+)
+
+
+import Library from './library';
+
+if (module.hot) {
+  // module.hot.accept('./library', function() {
+  //   console.log('Accepting the updated library module!');
+  //   Library.log();
+  // });
+  module.hot.accept();
+}
