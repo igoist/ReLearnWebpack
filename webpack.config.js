@@ -3,27 +3,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+// devtool: "cheap-eval-source-map",
+// devtool: "inline-source-map",
+// vender: ['lodash']
+// vendor: ['react', 'react-dom']
+
 module.exports = {
-  devtool: "cheap-eval-source-map",
-  // devtool: "inline-source-map",
   entry: {
     app: './src/index.js',
-    // vender: ['lodash']
-    vendor: ['react', 'react-dom']
   },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
+
   plugins: [
-    // new CleanWebpackPlugin(['dist']),
-    new webpack.HotModuleReplacementPlugin(),
+    // new CleanWebpackPlugin(['dist']),    
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(), // Enable HMR
     new HtmlWebpackPlugin({
       title: 'Output Management',
       filename: 'index.html',
       template: 'src/index.html'
     })
   ],
+
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/' // 用 /，在本地 c dist/index.html 存在问题
+  },
+
   module: {
     rules: [
       {
@@ -53,9 +59,9 @@ module.exports = {
       }
     ]
   },
+
   devServer: {
-    port: 8321,
-    hot: true,
+    hot: true, // Tell the dev-server we're using HMR
     contentBase: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   }
