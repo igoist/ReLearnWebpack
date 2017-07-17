@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "p": "webpack --progress --color --watch",
-    "s": "webpack-dev-server"
+    "b": "webpack --progress --color",
+    "s": "webpack-dev-server --progress --color"
   },
   "author": "igoist",
   "license": "UNLICENSED",
