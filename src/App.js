@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -9,16 +8,11 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        Hello World!!!!dasdsddsds
+        Hello World!!!!
         <Footer />
       </div>
     );
   }
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 
 export default App;

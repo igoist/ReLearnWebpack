@@ -16,6 +16,7 @@ module.exports = {
 
   plugins: [
     // new CleanWebpackPlugin(['dist']),    
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(), // Enable HMR
     new HtmlWebpackPlugin({
       title: 'Output Management',
@@ -27,7 +28,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/' // 用 /，在本地 c dist/index.html 存在问题
   },
 
   module: {
